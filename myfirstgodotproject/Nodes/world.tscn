@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://fbokk2asb58p"]
+
+[ext_resource type="Script" path="res://Nodes/world.gd" id="1_tmqjb"]
+[ext_resource type="PackedScene" uid="uid://boa4j36jg8l7r" path="res://Nodes/character_node_2d.tscn" id="1_uump3"]
+[ext_resource type="PackedScene" uid="uid://dj00ae64djp2t" path="res://Nodes/tree.tscn" id="2_4np1o"]
+[ext_resource type="PackedScene" uid="uid://c7hetkwh7l6hy" path="res://Nodes/rock.tscn" id="3_gkodg"]
+[ext_resource type="PackedScene" uid="uid://dujg76vapj6n5" path="res://Nodes/merchan.tscn" id="4_mlmru"]
+[ext_resource type="PackedScene" uid="uid://0rh60ey0da7" path="res://Nodes/jar.tscn" id="5_mi3p2"]
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_tmqjb")
+
+[node name="CharacterNode2D" parent="." instance=ExtResource("1_uump3")]
+position = Vector2(545, 313)
+speed = 400
+
+[node name="Tree" parent="." instance=ExtResource("2_4np1o")]
+position = Vector2(156, 101)
+
+[node name="Tree2" parent="." instance=ExtResource("2_4np1o")]
+position = Vector2(1048, 119)
+
+[node name="Tree3" parent="." instance=ExtResource("2_4np1o")]
+position = Vector2(732, 122)
+
+[node name="Rock" parent="." instance=ExtResource("3_gkodg")]
+position = Vector2(362, 138)
+
+[node name="Rock2" parent="." instance=ExtResource("3_gkodg")]
+position = Vector2(705, 466)
+
+[node name="Merchan" parent="." instance=ExtResource("4_mlmru")]
+position = Vector2(182, 440)
+
+[node name="jar" parent="." instance=ExtResource("5_mi3p2")]
+position = Vector2(966, 451)

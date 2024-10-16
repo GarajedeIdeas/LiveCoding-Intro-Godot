@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://dujg76vapj6n5"]
+
+[ext_resource type="Texture2D" uid="uid://c5qiga3ptoouq" path="res://Art/puppet_close.png" id="1_ygyed"]
+[ext_resource type="Texture2D" uid="uid://xnay7lcy8mg0" path="res://Art/puppet_open.png" id="2_eycxb"]
+[ext_resource type="Script" path="res://Nodes/dialogue.gd" id="3_4fma3"]
+[ext_resource type="Texture2D" uid="uid://b1i12lexgyfxt" path="res://Art/bubble.png" id="3_hue7f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v18nw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ygyed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_eycxb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_45h51"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j04dm"]
+radius = 98.5089
+
+[node name="Merchan" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v18nw")
+autoplay = "default"
+frame_progress = 0.269274
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 118)
+shape = SubResource("CircleShape2D_45h51")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-2, -26)
+script = ExtResource("3_4fma3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6, -9)
+shape = SubResource("CircleShape2D_j04dm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+
+[node name="Bubble" type="Sprite2D" parent="Area2D"]
+visible = false
+position = Vector2(176, -231)
+texture = ExtResource("3_hue7f")
+
+[node name="Label" type="Label" parent="Area2D/Bubble"]
+offset_left = -99.0
+offset_top = -30.0
+offset_right = 234.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 47
+text = "HELLO KID"
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

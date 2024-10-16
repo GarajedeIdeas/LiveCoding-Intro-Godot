@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://boa4j36jg8l7r"]
+
+[ext_resource type="Texture2D" uid="uid://b50tsh8svga3b" path="res://Art/kid_idle.png" id="1_d7oqo"]
+[ext_resource type="Script" path="res://Nodes/character_controller.gd" id="1_esiim"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ekg5v"]
+radius = 35.0143
+
+[node name="CharacterNode2D" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_esiim")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_d7oqo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 60)
+shape = SubResource("CircleShape2D_ekg5v")
