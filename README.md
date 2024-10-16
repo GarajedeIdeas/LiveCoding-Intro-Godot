@@ -4,7 +4,7 @@
 * 1. [Acerca de Godot](#AcercadeGodot)
 * 2. [Descargando el motor](#Descargandoelmotor)
 * 3. [Conociendo la Interfaz](#ConociendolaInterfaz)
-	* 3.1. [Panel de escenas:](#Paneldeescenas:)
+	* 3.1. [Panel de escenas](#Paneldeescenas)
 	* 3.2. [Menú superior y pestañas](#Mensuperiorypestaas)
 	* 3.3. [Inspector](#Inspector)
 	* 3.4. [Sistema de archivos](#Sistemadearchivos)
@@ -92,7 +92,7 @@ Abre el ejecutable que acabas de descargar y pulsa sobre Crear. Aquí puedes ele
 
 Vamos a crear un nuevo Nodo Raíz y buscaremos un CharacterBody2D. Se trata de un nodo tipo 2D que tiene funcionalidad básica para mover un personaje en un escenario.
 ####  5.2.2. <a name='Sprite2D'></a>Sprite2D
-![CharacterSprite](.github\character_sprite.png)
+![CharacterSprite](.github/character_sprite.png)
 Pero además de moverse, necesitaremos que nuestro personaje tenga una representación visual en el juego. Vamos a añadir un hijo a nuestro jugador de tipo Sprite2D y asignarle a este la imagen de nuestro personaje.
 ![Texture filter a nearest](.github/nearest.png)
 Si no nos gusta el suavizado que añade Godot a nuestro sprite, podemos cammbiar la manera en la que se van a renderizar las texturas. Para ello vamos a Proyecto -> Configuración del proyecto -> Renderizado de texturas -> Filtro y lo setearemos como Nearest.
@@ -125,25 +125,25 @@ Justo después, llamámos al método ```move_and_slide()``` para que el personaj
 ##  6. <a name='Creandonuestraescenaprincipaldejuego'></a>Creando nuestra escena principal de juego
 Nuestro personaje principal ya está listo, ahora necesitamos un entorno por donde pueda moverse. Para ello, hacemos una nueva Escena que sea un Nodo2D y la guardamos en el Sistema de Archivos.
 
-![Creando el mundo](.github\world.png)
+![Creando el mundo](.github/world.png)
 
 Una vez creado nuestro mundo, podemos añadir al personaje principal para que pueda desplazarse por él. Para ello basta con arrastrar la escena de personaje que hemos creado previamente a nuestro nueva escena y pulsar sobre el botón de jugar (play) en la esquina superior derecha.
 
 Como aún no tenemos ninguna escena como la principal de nuestro juego, nos preguntará si es la actual. Decimos que sí y podemos probar cómo ya se mueve nuestro personaje
 
-![Añadiendo el personaje](.github\add_character.png)
+![Añadiendo el personaje](.github/add_character.png)
 
 
 ##  7. <a name='Creandoobstaculos'></a>Creando obstaculos
 Ahora que tenemos nuestro personaje que se puede mover libremente por el entorno, podemos añadir objetos con los que pueda chocar. Para hacer eso, podemos crear un nuevo Nodo 2D de tipo ```StaticBody2D``` y añadirle un Sprite2D y CollisionShape2D como hicimos con nuestro personaje
 
-![Creando Obstáculos](.github\create_tree.png)
+![Creando Obstáculos](.github/create_tree.png)
 
 Simplemente arrastrando estos nuevos elementos a nuestra escena principal, vemos que el personaje no puede atravesarlos.
 
 Pero tenemos un nuevo problema, parece que el personaje no se dibuja detrás de los obstáculos cuando debería. Para resolver esto, solo tenemos que activar la opción de Y Sorting en la raíz de nuestra escena principal.
 
-![Y sorting](.github\y_sort_enabled.png)
+![Y sorting](.github/y_sort_enabled.png)
 
 ##  8. <a name='Aadirobjetointeractivo'></a>Añadir objeto interactivo
 Es común en un videojuego querer que tus elementos de juego interaccionen algo más que simplemente chocando entre ellos. Vamos a crear un pequeño objeto que detecte cuando nuestro personaje principal entre en su rango y muestre un mensaje de victoria.
@@ -156,7 +156,7 @@ Ocultamos nuestro recién creado texto de victoria pulsando en el ojo junto a su
 
 Una vez creado este script, tendremos que conectarlo con la señal que se emite cuando un objeto entra en el CollisionShape2D de un Area2D. Para ello, pulsamos en la pestaña de Nodo a la derecha del Inspector y encontramos 
 
-![Señales](.github\body_entered.png)
+![Señales](.github/body_entered.png)
 
 Conectamos la señal elegida al script que acabamos de crear en la ventana que aparece al seleccionarlo.
 
@@ -173,7 +173,7 @@ func _on_body_entered(body: Node2D) -> void:
 	collision_shape_2d.disabled = true
 	label.show()
 ```
-![Jar Script](.github\jar_script.png)
+![Jar Script](.github/jar_script.png)
 
 En el script de nuestro jarrón, recogeremos las referencias a nuestros Sprites, CollisionShape2D y Label para poder modificar su comportamiento cuando se emita la señal que hemos conectado. En el método que se creó cuando conectamos la señal, vamos a ocultar el Sprite2D y el CollisionShape2D y mostraremos el mensaje de victoria.
 
