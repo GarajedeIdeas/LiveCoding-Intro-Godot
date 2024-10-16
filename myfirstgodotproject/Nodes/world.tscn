@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://fbokk2asb58p"]
+[gd_scene load_steps=6 format=3 uid="uid://fbokk2asb58p"]
 
-[ext_resource type="Script" path="res://Nodes/world.gd" id="1_tmqjb"]
 [ext_resource type="PackedScene" uid="uid://boa4j36jg8l7r" path="res://Nodes/character_node_2d.tscn" id="1_uump3"]
 [ext_resource type="PackedScene" uid="uid://dj00ae64djp2t" path="res://Nodes/tree.tscn" id="2_4np1o"]
 [ext_resource type="PackedScene" uid="uid://c7hetkwh7l6hy" path="res://Nodes/rock.tscn" id="3_gkodg"]
@@ -9,7 +8,6 @@
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_tmqjb")
 
 [node name="CharacterNode2D" parent="." instance=ExtResource("1_uump3")]
 position = Vector2(545, 313)
